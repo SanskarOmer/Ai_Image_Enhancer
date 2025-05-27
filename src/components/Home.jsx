@@ -1,13 +1,29 @@
-import ImageUpload from './ImageUpload';
-import ImagePreview from './ImagePreview';
+import ImageUpload from "./ImageUpload";
+import ImagePreview from "./ImagePreview";
+import { useState } from "react";
 
 const Home = () => {
-  return (
-    <div>
-        <ImageUpload/>
-        <ImagePreview/>
-    </div>
-  )
-}
+  const [uploadImage, setUploadImage] = useState("");
+  const [enhancedImage, setEnhancedImage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const UploadHandler =(file)=>{
+    console.log("File uploaded:", file);
+    setUploadImage(URL.createObjectURL(file));
+    setLoading(true);
+    // Simulate an API call to enhance the image
 
-export default Home
+  };
+  
+  return (
+    <>
+      <ImageUpload UploadHandler={UploadHandler} />
+      <ImagePreview
+        loading={loading}
+        upload={uploadImage}
+        enhanced={enhancedImage}
+      />
+    </>
+  );
+};
+
+export default Home;
