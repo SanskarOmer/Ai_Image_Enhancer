@@ -9,9 +9,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npm run build && echo 'Build completed!'",
-    "deploy": "gh-pages -d dist",
-    "postinstall": "tailwindcss -i ./src/index.css -o ./dist/output.css --minify && echo 'Tailwind CSS built successfully!'"
+    "predeploy": "npm run build ",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.7",
